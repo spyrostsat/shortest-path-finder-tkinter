@@ -39,7 +39,7 @@ class ShortestPathFinder(object):
         self.min_obstacles = 5  # the minimum number of obstacles that the user has to add to the map
         
         self.font = "Comic Sans MS"
-        self.font_size = 20
+        self.font_size = 18
         
         self.box_width = 1
         self.box_height = 1
@@ -61,7 +61,7 @@ class ShortestPathFinder(object):
         self.screen_width = self.root.winfo_screenwidth()
         self.screen_height = self.root.winfo_screenheight()
         
-        screen_multiplier = 0.92  # we will use this variable to adjust the size of the root window
+        screen_multiplier = 0.90  # we will use this variable to adjust the size of the root window
         
         # Let's adjust the size of the root window
         self.width = int(screen_multiplier * self.screen_width)  # this will be the width of the root window 
@@ -596,22 +596,23 @@ class ShortestPathFinder(object):
                             self.old_graph.add_edge((i, j), (i, j + 1), weight=self.old_graph.nodes[(i, j + 1)]['weight'])
                             self.old_graph.add_edge((i, j + 1), (i, j), weight=self.old_graph.nodes[(i, j)]['weight'])
         
-        # Let's print the graph
-        print(f"Nodes of the graph: {self.graph.nodes}\n")
+        # # Let's print the graph
+        # print(f"Nodes of the graph: {self.graph.nodes}\n")
         
-        # Let's print the edges and the cost of each node
-        for node in self.graph.nodes:
-            print(f"Edges of node {node}: {self.graph.edges(node)}")
-            print(f"Cost of node {node}: {self.graph.nodes[node]['weight']}")
-            print("=" * 150)
+        # # Let's print the edges and the cost of each node
+        # for node in self.graph.nodes:
+        #     print(f"Edges of node {node}: {self.graph.edges(node)}")
+        #     print(f"Cost of node {node}: {self.graph.nodes[node]['weight']}")
+        #     print("=" * 150)
         
-        # print the cost of each edge
-        for edge in self.graph.edges:
-            print(f"Cost of edge {edge}: {self.graph.edges[edge]['weight']}")
-            print("=" * 150)
+        # # print the cost of each edge
+        # for edge in self.graph.edges:
+        #     print(f"Cost of edge {edge}: {self.graph.edges[edge]['weight']}")
+        #     print("=" * 150)
 
         # ================================================================================================================
         # Let's find the shortest path using the Dijkstra algorithm
+        
         try:
             self.shortest_path_dijkstra = nx.shortest_path(G=self.graph, source=self.start_point, target=self.end_point, method='dijkstra', weight="weight")
             self.shortest_path_dijkstra_old = nx.shortest_path(G=self.old_graph, source=self.start_point, target=self.end_point, method='dijkstra', weight="weight")
