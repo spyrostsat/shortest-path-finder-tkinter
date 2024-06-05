@@ -55,19 +55,19 @@ class ShortestPathFinder(object):
         # Let's create the root window
         self.root = tk.Tk()
         self.root.title("Shortest Path Finder - By: @spyrostsat")
-        self.root.resizable(False, False)
+        self.root.resizable(True, True)
         
         # Let's find the width and height of the screen
         self.screen_width = self.root.winfo_screenwidth()
         self.screen_height = self.root.winfo_screenheight()
         
-        screen_multiplier = 0.90  # we will use this variable to adjust the size of the root window
+        screen_multiplier = 0.80  # we will use this variable to adjust the size of the root window
         
         # Let's adjust the size of the root window
         self.width = int(screen_multiplier * self.screen_width)  # this will be the width of the root window 
         self.height = int(screen_multiplier * self.screen_height)  # this will be the height of the root window
-        width_offset = int((self.screen_width - screen_multiplier * self.screen_width) / 2)  # this will be the offset of the root window in the x axis
-        height_offset = int((self.screen_height - screen_multiplier * self.screen_height) / 2)  # this will be the offset of the root window in the y axis
+        width_offset = int((self.screen_width - self.width) / 2)  # this will be the offset of the root window in the x axis
+        height_offset = int((self.screen_height - self.height) / 2)  # this will be the offset of the root window in the y axis
         
         self.root.geometry(f"{self.width}x{self.height}+{width_offset}+{height_offset}")
         
